@@ -1,10 +1,10 @@
-FROM python:3.6.6-alpine3.7
-RUN apk update && apk add build-base
+FROM python:3.8-slim
 
-WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-ADD . /app
-
+WORKDIR /code
+COPY . /code
 RUN pip install -r requirements.txt
 
-CMD ["python", "run.py"]
+CMD ["python3", "run.py"]
