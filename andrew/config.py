@@ -1,25 +1,11 @@
-from import_string.base import import_string
+import os
 
 
-class Config(dict):
-    def apply(self, cfg):
-        obj = import_string(cfg)
-        for key in dir(obj):
-            if key.isupper():
-                self[key] = getattr(obj, key)
-
-
-class BaseConfig(object):
-    DEBUG = False
-
-    LOG_TO_FILE = True
-    LOG_FILENAME = 'bot.log'
+class Config:
+    DEBUG = bool(int(os.environ.get('BOT_DEBUG', '0')))
+    COMMAND_PREFIX = os.environ.get('BOT_COMMAND_PREFIX', '/')
 
     PLUGINS_PATH = 'plugins'
     STORAGE_PATH = 'storage'
-
-    COMMAND_SYMBOL = '/'
-
-    ADMINS = []
 
     CONNECTIONS = {}
