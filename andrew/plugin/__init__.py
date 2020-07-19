@@ -2,15 +2,17 @@ from abc import ABCMeta, abstractmethod
 
 
 class Plugin(metaclass=ABCMeta):
-    async def load(self):
+    def load(self):
         pass
 
-    async def unload(self):
+    def unload(self):
         pass
 
-    @abstractmethod
-    def get_name(self) -> str:
-        raise NotImplementedError
+    async def pre_connect(self):
+        pass
+
+    async def post_connect(self):
+        pass
 
     @abstractmethod
     def get_description(self) -> str:

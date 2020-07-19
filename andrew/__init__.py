@@ -1,1 +1,1 @@
-from .andrew_bot import AndrewBot
+from .bot import AndrewBot
