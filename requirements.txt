@@ -1,6 +1,3 @@
-tinydb
-import_string
-aiotg
-ujson
-PyMemoize
-aiohttp
+ujson==3.0.0
+aiohttp==3.6.2
+uvloop==0.14.0
