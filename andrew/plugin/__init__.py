@@ -1,7 +1,12 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Plugin(metaclass=ABCMeta):
+class Plugin(object, metaclass=ABCMeta):
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(Plugin, cls).__new__(cls)
+        return cls.instance
+
     def load(self):
         pass
 

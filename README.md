@@ -19,7 +19,8 @@ db = DatabaseService()
 db.run('SELECT * FROM messages')
 ```
 
-Services receives configuration from `ConfigurationServer`, which is a mandatory service.
+Services receive configuration from environment variables.
+
 #### Plugin
 
 There is two types of plugins - `core` (bundled and available for everyone) and `external`, which can be loaded by

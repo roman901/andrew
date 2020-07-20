@@ -41,3 +41,4 @@ class PluginsService(Service):
 def register_plugin(plugin):
     plugins = PluginsService()
     plugins.register(plugin())
+    return plugin
